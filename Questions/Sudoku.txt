@@ -1,0 +1,23 @@
+<html>
+Given a 4x4 Sudoku, find its solution. If the solution exists display it, else display the message - “Can not solve an invalid Soduku!”. The rules are as follows:<br>
+<ul><li>Each row or column contains a number only once.</li>
+<li>Each block of 2x2 also contains a number only once.</li>
+</ul><br><br>
+<b>Input</b><br>
+4 lines, each containing 4 numbers - from 1 to 4 inclusive.
+<br><br>
+<br>Output</b><br>
+The solution of the Sudoku, if it exists. Else the string - “Can not solve an invalid Soduko!”<br><br>
+
+Sample Input:<br>
+0 1 3 0<br>
+2 0 0 0<br>
+0 0 0 3<br>
+0 2 1 0<br>
+<br><br>
+Sample Output:<br>
+4 1 3 2<br>
+2 3 4 1<br>
+1 4 2 3<br>
+3 2 1 4<br>
+</html>
