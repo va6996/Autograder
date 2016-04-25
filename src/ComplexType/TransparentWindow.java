@@ -5,7 +5,8 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class TransparentWindow extends JFrame {
-    public TransparentWindow() {
+    
+    public TransparentWindow(String OTP) {
         setLayout(new GridBagLayout());
         JFrame jfr =this;
         setUndecorated(true);
@@ -23,7 +24,7 @@ public class TransparentWindow extends JFrame {
             SwingUtilities.invokeLater(new Runnable() {
                 @Override
                 public void run() {
-                   if(in.getText().equals("12345")) {
+                   if(in.getText().equals(OTP)) {
                        System.out.println("Yes");
                        jfr.dispose();
                    }
@@ -42,7 +43,5 @@ public class TransparentWindow extends JFrame {
             }
         });
     }
-
     
-
 }

@@ -1,6 +1,7 @@
 package Judge;
 
 
+import java.security.SecureRandom;
 import java.util.Properties;
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -28,6 +29,8 @@ class GMailAuthenticator extends Authenticator {
 }
 
 public class SendEmail {
+    
+    
     public static boolean sendEmail(String Subject, String Body){
        try
         {
@@ -50,13 +53,9 @@ public class SendEmail {
             ErrorHandling.MessagingError();
             return false;
         }catch(Exception e){        
-            e.printStackTrace();
-            System.out.println("No internet!");
+            ErrorHandling.InternetError();
             return false;
         } 
-    }
-    public static void main(String arg[]){
-        System.out.println(SendEmail.sendEmail("try", "trie"));
     }
 }
     

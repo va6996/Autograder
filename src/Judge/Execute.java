@@ -47,6 +47,7 @@ public class Execute {
     //Main Execution code.
     public static boolean execute(String[] execute, String relPath) throws IOException, InterruptedException, ExecutionException{
         boolean flag = false;
+        tle = false;
         try {    
             File output = new File(path + "output.txt");
             setUpProcess(execute, output, relPath);

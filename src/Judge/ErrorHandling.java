@@ -1,4 +1,4 @@
-
+    
 package Judge;
 
 import javax.swing.JOptionPane;
@@ -27,5 +27,9 @@ public class ErrorHandling {
     public static void MessagingError(){
         JOptionPane.showMessageDialog(null,"Error sending mail!",
                 "Mailing Error",JOptionPane.ERROR_MESSAGE);
+    }
+    public static void InternetError(){
+        JOptionPane.showMessageDialog(null,"Error connecting to Internet!",
+                "Coonection Error",JOptionPane.ERROR_MESSAGE);
     }
 }

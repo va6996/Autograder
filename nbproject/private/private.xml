@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/terminator/Documents/proj/test/src/ComplexType/TransparentWindow.java</file>
+            <file>file:/home/terminator/Documents/proj/Autograder/src/ComplexType/GenerateOTP.java</file>
+            <file>file:/home/terminator/Documents/proj/Autograder/src/Judge/Execute.java</file>
+            <file>file:/home/terminator/Documents/proj/Autograder/src/Judge/ErrorHandling.java</file>
+            <file>file:/home/terminator/Documents/proj/Autograder/src/ComplexType/TransparentWindow.java</file>
+            <file>file:/home/terminator/Documents/proj/Autograder/src/Judge/Main.java</file>
+            <file>file:/home/terminator/Documents/proj/Autograder/src/Judge/SendEmail.java</file>
+            <file>file:/home/terminator/Documents/proj/Autograder/src/ComplexType/TimeLimit.java</file>
         </group>
     </open-files>
 </project-private>

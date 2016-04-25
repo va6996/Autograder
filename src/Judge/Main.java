@@ -438,7 +438,7 @@ public class Main extends javax.swing.JFrame {
         } catch (IOException ex) {
             ErrorHandling.IOError();
         } catch (ArrayIndexOutOfBoundsException ex){
-            ErrorHandling.IndexOutOfBoundsError();
+            //ErrorHandling.IndexOutOfBoundsError();
         }
     }
 
