@@ -32,12 +32,15 @@ public class SetQuestion extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField1,textField2,textField3,textField4,textField5;
 
+	Connection connection ;
 	Statement statement;
+	String queslabId;
 	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable(){
 			public void run() {
 				try {
@@ -53,12 +56,7 @@ public class SetQuestion extends JFrame {
 				
 				
 				
-				try {
-					SetQuestion frame = new SetQuestion();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				
 			}
 		});
 	}
@@ -66,7 +64,7 @@ public class SetQuestion extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SetQuestion() {
+	public SetQuestion(String labId) {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -75,12 +73,12 @@ public class SetQuestion extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		
+		queslabId=labId;
 		
 		JLabel header = new JLabel("Enter the Question to be added");
 		
 		header.setFont(new Font("Dialog", Font.BOLD, 18));
-		contentPane.add(header,"cell 1 0 2 1");
+		contentPane.add(header,"cell 0 0 2 1");
 		
 		textField1 = new JTextField();
 		
@@ -95,53 +93,54 @@ public class SetQuestion extends JFrame {
 		
 		contentPane.add(textField2, " wrap"); //
 		textField2.setColumns(20);
-		
-		JLabel header3 = new JLabel("Enter the Other Options");
-		header3.setFont(new Font("Dialog", Font.BOLD, 12));
-		contentPane.add(header3,"wrap");
-		
-		 textField3 = new JTextField();			
-			contentPane.add(textField3); //
-			textField3.setColumns(10);
-			
-			 textField4 = new JTextField();			
-				contentPane.add(textField4); //
-				textField4.setColumns(10);
-				
-				 textField5 = new JTextField();			
-					contentPane.add(textField5); //
-					textField5.setColumns(10);
-			
+	
 		
 		
 		JButton btnSubmit = new JButton("Submit");
+		contentPane.add(btnSubmit, " align center");
 		
-		contentPane.add(btnSubmit, "wrap, align center");
 		
-		Connection connection = null;
+		JButton btnExit= new JButton("Exit");
+		contentPane.add(btnExit," align right ");
+		connection = null;
 		try{
 			
 			
 		connection = DriverManager.getConnection("jdbc:sqlite:questionsdb.db");
-	    final Statement statement = connection.createStatement();
+	     statement = connection.createStatement();
 	    statement.setQueryTimeout(30);
+	    showDb();
         btnSubmit.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String ques =textField1.getText();
+				String ques =textField1.getText().toString();
 
-				 getQuestion(ques);
+				
 				 
-				 String ans=textField2.getText();
-				 getAnswer(ans);
+				 String ans=textField2.getText().toString();
+				 
 			
+				 setQuesAns(ques,ans);
 				 
 				textField1.setText(" ");
+				textField2.setText(" ");
 				showDb();
+				     
 			}
 		});	    
+        
+        btnExit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				contentPane.setVisible(false);
+				AccessSelection accessSelection = new AccessSelection();
+				accessSelection.frame.setVisible(true); 
+			}
+		});
 	
 		}
 		catch(SQLException e){
@@ -155,10 +154,10 @@ public class SetQuestion extends JFrame {
 	}
 	
 
-	public void getQuestion( String ques){
+	public void setQuesAns( String ques, String ans){
 		String data = null;
 		try {
-			 statement.executeUpdate("insert into mcq(question) values('"+ques+"')");
+			 statement.executeUpdate("insert into mcq(question,answer,labid) values('"+ques+"','"+ans+"','"+queslabId+"')");
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -167,17 +166,7 @@ public class SetQuestion extends JFrame {
 	}
 	
 	
-	public void getAnswer( String ans){
-		String data = null;
-		try {
-			 statement.executeUpdate("insert into mcq(answer) values('"+ans+"')");
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
+
 	
 	
 	
@@ -190,6 +179,7 @@ public class SetQuestion extends JFrame {
 		       // read the result set
 		       System.out.println("question = " + rs.getString("question"));
 		       System.out.println("id = " + rs.getInt("id"));
+		       System.out.println("labid ="+ rs.getString("labid"));
 		     }
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block

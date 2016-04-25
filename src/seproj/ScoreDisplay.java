@@ -66,7 +66,7 @@ public class ScoreDisplay extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		scoreDisplay= new JLabel("Your Score is-->" + score.toString() );
+		scoreDisplay= new JLabel("Your Score is:" + score.toString() );
 		scoreDisplay.setFont(new Font("Dialog", Font.BOLD, 20));
 		
 		contentPane.add(scoreDisplay);

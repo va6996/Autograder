@@ -1,2 +1,0 @@
-test.Execute
-test.Test

@@ -3,25 +3,25 @@ package seproj;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JTextArea;
-import java.awt.BorderLayout;
-import java.awt.Font;
-import java.awt.GridBagLayout;
 import javax.swing.JRadioButton;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+//import com.jgoodies.forms.layout.FormLayout;
+//import com.jgoodies.forms.layout.ColumnSpec;
+//import com.jgoodies.forms.layout.RowSpec;
+//import com.jgoodies.forms.layout.FormSpecs;
 
+import javax.swing.ButtonGroup;
 import javax.swing.SpringLayout;
 import javax.swing.UIManager;
 import javax.swing.UIManager.*;
 public class AccessSelection {
 
-	private JFrame frame;
+	public JFrame frame;
  
+	public ButtonGroup AccessSelect;
 	
 	/**
 	 * Launch the application.
@@ -84,6 +84,10 @@ public class AccessSelection {
 		springLayout.putConstraint(SpringLayout.WEST, rdbtnInstructor, 0, SpringLayout.WEST, rdbtnStudent);
 		frame.getContentPane().add(rdbtnInstructor);
 		
+		AccessSelect= new ButtonGroup();
+		AccessSelect.add(rdbtnStudent);
+		AccessSelect.add(rdbtnInstructor);
+		
 		JButton btnConfirm = new JButton("Confirm");
 		springLayout.putConstraint(SpringLayout.NORTH, btnConfirm, 30, SpringLayout.SOUTH, rdbtnInstructor);
 		springLayout.putConstraint(SpringLayout.WEST, btnConfirm, 0, SpringLayout.WEST, rdbtnStudent);
@@ -99,7 +103,7 @@ public class AccessSelection {
 				switchtoStudentClass();
 				}
 				else if(rdbtnInstructor.isSelected()){
-					switchtoSetQuestionClass();
+					switchtoAdminLogin();
 				}
 					
 				}
@@ -109,18 +113,17 @@ public class AccessSelection {
 	}
 	void switchtoStudentClass(){
 	
-		frame.dispose();
-		StudentMcq mcq = new StudentMcq();
-		mcq.frame.setVisible(true);      
+		frame.setVisible(false);
+		StudentEntry mcq = new StudentEntry();
+		mcq.setVisible(true);      
 		
 	}
 	
-	void switchtoSetQuestionClass(){
-		frame.dispose();
-		SetQuestion setQuestion = new SetQuestion();
-		setQuestion.setVisible(true);
-		
+
+	
+	void switchtoAdminLogin(){
+		frame.setVisible(false);
+		AdminLogin adminLogin= new AdminLogin();
+		adminLogin.setVisible(true);
 	}
-	
-	
 }

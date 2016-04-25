@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
 
 import javax.swing.JFrame;
@@ -15,6 +17,7 @@ import javax.swing.UIManager;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.JList;
 import javax.swing.JLabel;
 import java.awt.FlowLayout;
@@ -37,8 +40,10 @@ public class StudentMcq {
 	public JFrame frame;
 	public static JLabel ques1,ques2,ques3,ques4,ques5,scoreDisp;
 
-	public static JRadioButton q1_o1,q1_o2,q1_o3,q1_o4,q2_o1,q2_o2,q2_o3,q2_o4,
-	q3_o1,q3_o2,q3_o3, q3_o4, q4_o1,q4_o2,q4_o3,q4_o4,q5_o1,q5_o2,q5_o3,q5_o4;
+	
+	
+	
+	public static JTextField ans1,ans2,ans3,ans4,ans5;
 	
 	public static JButton submit;
 
@@ -49,8 +54,10 @@ public class StudentMcq {
 	public static ButtonGroup groupQ1;
 	public static ButtonGroup groupQ2;
 	
-	public static Integer score;
-	
+	public static Integer score=0;
+	public ArrayList<Integer> shuflist ;
+	String queslabid;
+	 ArrayList<Integer> labqueslist;
 	
 	/**
 	 * Launch the application.
@@ -72,17 +79,7 @@ public class StudentMcq {
 				
 				
 				
-				try {
-					
-					
-					StudentMcq window = new StudentMcq();
-					window.frame.setVisible(true);	
 				
-					
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 			}
 		});
 		
@@ -93,101 +90,120 @@ public class StudentMcq {
 	/**
 	 * Create the application.
 	 */
-	public StudentMcq() {
-		initialize();
+	public StudentMcq(String labId) {
+		initialize(labId);
+		
+		 
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String labId) {
 		score=0;
 		frame = new JFrame("MCQ Paper");
 		MigLayout layout = new MigLayout("wrap 4");
-		frame.setBounds(100, 100, 900, 600);
+		frame.setBounds(100, 100, 600, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		   queslabid=labId;
 		frame.getContentPane().setLayout(layout);
 		
-		ques1 = new JLabel("New label");		
-		frame.getContentPane().add(ques1, "wrap");	
+		ques1 = new JLabel("Q1)" );		
+		frame.getContentPane().add(ques1, "wrap 4");	
 		
-		   q1_o1 = new JRadioButton("");		   
-		    frame.getContentPane().add(q1_o1);
-		    
-		    q1_o2 = new JRadioButton("");		   
-		    frame.getContentPane().add(q1_o2);		    
-		     q1_o3 = new JRadioButton("");		    
-		    frame.getContentPane().add(q1_o3);		    
-		    
-		    q1_o4 = new JRadioButton("");		  
-		    frame.getContentPane().add(q1_o4);
-			
+
+		ans1= new JTextField("",20);
+		frame.getContentPane().add(ans1,"wrap 4");
 		
-		ques2 = new JLabel("New label");
-		frame.getContentPane().add(ques2,"wrap");
 		
-		  q2_o1 = new JRadioButton("");		   
-		    frame.getContentPane().add(q2_o1);
+		ques2 = new JLabel("Q2) ");
+		frame.getContentPane().add(ques2,"wrap 4");
 		
-		     q2_o2 = new JRadioButton("");			   
-		    frame.getContentPane().add(q2_o2);
+		ans2= new JTextField("",20);
+		frame.getContentPane().add(ans2,"wrap 4");
 		
-		    q2_o3 = new JRadioButton("");			   
-		    frame.getContentPane().add(q2_o3);
-		
-		   q2_o4 = new JRadioButton("");			   
-		    frame.getContentPane().add(q2_o4,"wrap");
 			
 		
 			
-			ques3 = new JLabel("New label");		
+			ques3 = new JLabel("Q3) ");		
 			frame.getContentPane().add(ques3, "wrap");	
 			
-			   q3_o1 = new JRadioButton("");		   
-			    frame.getContentPane().add(q3_o1);
-			    
-			    q3_o2 = new JRadioButton("");		   
-			    frame.getContentPane().add(q3_o2);		    
-			     q3_o3 = new JRadioButton("");		    
-			    frame.getContentPane().add(q3_o3);		    
-			    
-			    q3_o4 = new JRadioButton("");		  
-			    frame.getContentPane().add(q3_o4);
-			    
+			ans3= new JTextField("",20);
+			frame.getContentPane().add(ans3,"wrap");
 			 
-				ques4 = new JLabel("New label");		
+				ques4 = new JLabel("Q4) ");		
 				frame.getContentPane().add(ques4, "wrap");	
 				
-				   q4_o1 = new JRadioButton("");		   
-				    frame.getContentPane().add(q4_o1);
-				    
-				    q4_o2 = new JRadioButton("");		   
-				    frame.getContentPane().add(q4_o2);		    
-				     q4_o3 = new JRadioButton("");		    
-				    frame.getContentPane().add(q4_o3);		    
-				    
-				    q4_o4 = new JRadioButton("");		  
-				    frame.getContentPane().add(q4_o4);	    
-				 
+				ans4= new JTextField("",20);
+				frame.getContentPane().add(ans4,"wrap");
 			    
 			    
 			    
-					ques5 = new JLabel("New label");		
+					ques5 = new JLabel("Q5) ");		
 					frame.getContentPane().add(ques5, "wrap");	
 					
-					   q5_o1 = new JRadioButton("");		   
-					    frame.getContentPane().add(q5_o1);
+					ans5= new JTextField("",20);
+					frame.getContentPane().add(ans5,"wrap");
 					    
-					    q5_o2 = new JRadioButton("");		   
-					    frame.getContentPane().add(q5_o2);		    
-					     q5_o3 = new JRadioButton("");		    
-					    frame.getContentPane().add(q5_o3);		    
+					
+					
+					
+					try{
+						
+						connection = DriverManager.getConnection("jdbc:sqlite:questionsdb.db");
+					     statement = connection.createStatement();
+					    statement.setQueryTimeout(30);
+					   
+					    //System.out.println("Create View quesView as select id,x.question,x.answer from mcq as x where labid= '"+queslabid+"'  );
+					    //statement.executeUpdate("Create View quesView as select id,x.question,x.answer from mcq as x where labid= '"+queslabid+"' );
+					   // showView();
 					    
-					    q5_o4 = new JRadioButton("");		  
-					    frame.getContentPane().add(q5_o4);
+					    /*String tableMake=
+					    		"Insert into questemp(question,answer) values((SELECT mcq.question FROM mcq WHERE labid = '"+queslabid+"'"+" ),(SELECT answer FROM mcq WHERE labid =  '"+queslabid+"'))";
+					    System.out.println(tableMake);
+					    ResultSet r3= statement.executeQuery(tableMake);
+					    while(rs3.next)*/
+					  labqueslist = new ArrayList<Integer>();
+				      
+					    ResultSet rs3;
+					    rs3=statement.executeQuery("select * from mcq where labid= '"+queslabid+"'");
+					    System.out.println("select * from mcq where labid= '"+queslabid+"'");
+					    System.out.println(rs3.getFetchSize());
+					    while(rs3.next()){
+					    	
+					    	System.out.println(rs3.getInt("id"));
+					    	 labqueslist.add(rs3.getInt("id"));
+					    }
 					    
+					   /* ResultSet rs1;
+					    rs1=statement.executeQuery("select max(id) from questemp");
+					   
 					    
+					    int x=rs1.getInt("max(id)");
+					   
+					    ArrayList<Integer> list = new ArrayList<Integer>();
+				        for (int i=1; i<x; i++) {
+				            list.add(new Integer(i));}
+				         shuflist = new ArrayList<Integer>();
+				        Collections.shuffle(list);
+				        for (int i=0; i<5; i++) {
+				        	shuflist.add(list.get(i));
+				        }*/
+				       
+				        setQuestions(labqueslist.get(0), ques1);
+					    setQuestions(labqueslist.get(1), ques2);
+					    setQuestions(labqueslist.get(2), ques3);
+					    setQuestions(labqueslist.get(3), ques4);
+					    setQuestions(labqueslist.get(4), ques5);
+					
+					    showDb();
+						}
+						catch(SQLException e){
+							
+						}
+						finally{
+							
+						}
 		    submit= new JButton("Submit");
 		    frame.getContentPane().add(submit, "wrap, align center");	 
 		    
@@ -195,46 +211,14 @@ public class StudentMcq {
 		    scoreDisp = new JLabel("");
 		    scoreDisp.setVisible(false);
 		    frame.getContentPane().add(scoreDisp, "wrap, align center");
+		 
+		    System.out.println(queslabid);
 		    
-		  
-	  
+		    System.out.println(queslabid);
+		    
 	
-		try{
-			
-		connection = DriverManager.getConnection("jdbc:sqlite:questionsdb.db");
-	     statement = connection.createStatement();
-	    statement.setQueryTimeout(30);
-	   
-	    setQuestions(1,ques1); 
-		setOptions(1,  q1_o1,1);
-	    setOptions(1,  q1_o2,2);
-	    setOptions(1, q1_o3,3);
-	    setOptions(1, q1_o4,4);
-	    groupQ1 = new ButtonGroup();
-	    groupQ1.add(q1_o1);
-	    groupQ1.add(q1_o2);
-	    groupQ1.add(q1_o3);
-	    groupQ1.add(q1_o4);
-	    
-	    
-	    setQuestions(2,ques2);
-	    setOptions(2 , q2_o1,1);
-	    setOptions(2 ,  q2_o2,2);
-	    setOptions(2 ,  q2_o3,3);
-	    setOptions(2 ,  q2_o4,4);
-	    groupQ2 = new ButtonGroup();
-	    groupQ2.add(q2_o1);
-	    groupQ2.add(q2_o2);
-	    groupQ2.add(q2_o3);
-	    groupQ2.add(q2_o4);   	    
-	   	    	  	 
-		}
-		catch(SQLException e){
-			
-		}
-		finally{
-			
-		}
+		  
+		
 		
 	
 		submit.addActionListener(new ActionListener() {
@@ -242,13 +226,19 @@ public class StudentMcq {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String ans1=getSelectedButtonText(groupQ1);
-				String ans2= getSelectedButtonText(groupQ2);
-				checkAns(1,ans1);
-				checkAns(2,ans2);
-				ScoreDisplay scoreDisplay= new ScoreDisplay(score);
-				frame.setVisible(false);
-				scoreDisplay.setVisible(true);
+				String a1=ans1.getText().toString();
+				String a2= ans2.getText().toString();
+				String a3= ans3.getText().toString();
+				String a4= ans4.getText().toString();
+				String a5= ans5.getText().toString();
+				checkAns(labqueslist.get(0),a1);
+				checkAns(labqueslist.get(1),a2);
+				checkAns(labqueslist.get(2),a3);
+				checkAns(labqueslist.get(3),a4);
+				checkAns(labqueslist.get(4),a5);
+				calcFinalScore(score);
+				
+				
 			}
 		});
 		
@@ -262,15 +252,55 @@ public class StudentMcq {
 	}
 	
 	
+	public void calcFinalScore(Integer score){
+		ScoreDisplay scoreDisplay= new ScoreDisplay(score);		
+		frame.setVisible(false);
+		scoreDisplay.setVisible(true);
+	}
+
+	public void showDb(){
+	 ResultSet rs;
+	try {
+		rs = statement.executeQuery("select * from mcq");
+		  while(rs.next())
+		     {
+		       // read the result set
+		       System.out.println("question = " + rs.getString("question"));
+		       System.out.println("id = " + rs.getInt("id"));
+		     }
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
+	
+	public void showView(){
+		 ResultSet rs;
+		try {
+			rs = statement.executeQuery("select * from questemp");
+			  while(rs.next())
+			     {
+			       // read the result set
+			       System.out.println("question = " + rs.getString("question"));
+			       System.out.println("id = " + rs.getInt("id"));
+			     }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		
+	
 	
 		public void setQuestions(int key,  JLabel label) {
 			String data = null;
 			try {
+				
 				ResultSet rs = statement.executeQuery("select question,id from mcq where id = "+key);
 				while(rs.next())
 			      {
 			        // read the result set
-			   	  label.setText("Q"+rs.getInt("id")+") " + rs.getString("question"));
+			   	  label.setText(label.getText() + rs.getString("question"));
 			   	  			      }
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -280,22 +310,7 @@ public class StudentMcq {
 		
 		
 		
-		public void setOptions(int key, JRadioButton option, int optionnum) {
-			String data = null;
-			try {
-				ResultSet rs = statement.executeQuery("select option1,option2,option3,option4,id from mcq where id = "+key);
-				while(rs.next())
-			      {
-			        // read the result set
-			    	  option.setText( rs.getString("option"+optionnum));
-			    	  
-			      }
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}				 
-		 }
-		
+	
 		
 		
 		
@@ -320,7 +335,7 @@ public class StudentMcq {
 					System.out.println(rs.getString("answer"));
 			        // read the result set
 			    	 if(rs.getString("answer").equals(ans)){
-			    		 score++;
+			    		 ++score;
 			    	 }
 			    	  
 			      }

@@ -1,2 +1,0 @@
-Judge.GMailAuthenticator
-Judge.SendEmail
