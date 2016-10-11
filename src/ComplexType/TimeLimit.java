@@ -1,7 +1,6 @@
 
 package ComplexType;
 import Judge.Main;
-import Judge.SendEmail;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -13,19 +12,19 @@ public class TimeLimit {
     public static void lastJob(String RegNo, int type){
         if(type ==1){
             String score = "";
-            SendEmail.sendEmail(RegNo, score);
+            //Send Mail
         }
         else if (type==2){
             String ansList = "Questions solved:\n";
             for(int i=0;i<Main.completedList.size();i++)
                 ansList = ansList.concat(Main.completedList.get(i)).concat("\n");
-            SendEmail.sendEmail(RegNo, ansList);
+            //Send Mail
         }
         else if (type == 3){
             String OTP = GenerateOTP.OTP();
             TransparentWindow sw = new TransparentWindow(OTP);
             sw.setVisible(true);
-            SendEmail.sendEmail(RegNo, "OTP is: " + OTP);
+            //Send Mail
         }
     }
     
