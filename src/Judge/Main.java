@@ -23,7 +23,7 @@ public class Main extends javax.swing.JFrame {
         questionList = FileParser.parser(Compile.path + "Questions/");
         QuestionsList.setModel(questionList);
         CompletedList.setModel(completedList);
-        Question.setBorder(new EmptyBorder(10, 10, 10, 10));    
+        Question.setBorder(new EmptyBorder(10, 10, 10, 10));
         CodeArea.setText(CodeFormat.cCode);
         loadQuest(0);
         QuestionsList.setSelectedIndex(0);
@@ -93,7 +93,7 @@ public class Main extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,7 +376,7 @@ public class Main extends javax.swing.JFrame {
             ErrorHandling.ExecutionError();
         }
     }
-    
+
     private void LangSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LangSelectorActionPerformed
         // TODO add your handling code here:
         int select = LangSelector.getSelectedIndex();
@@ -401,7 +401,7 @@ public class Main extends javax.swing.JFrame {
             if(open.showOpenDialog(this) ==JFileChooser.APPROVE_OPTION){
                 System.out.println(open.getSelectedFile().getName());
                 System.out.println(open.getCurrentDirectory());
-                try {     
+                try {
                     BufferedReader Reader = new BufferedReader(new FileReader(open.getCurrentDirectory() + "/" + open.getSelectedFile().getName()));
                     String result = "", temp = null;
                     while((temp=Reader.readLine())!=null){
@@ -425,7 +425,7 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_QuestionsListValueChanged
     public void loadQuest(int index){
-        try {     
+        try {
             BufferedReader Reader = new BufferedReader(new FileReader(Compile.path + "Questions/" + questionList.elementAt(index).concat(".txt")));
             String result = "", temp = null;
             while((temp=Reader.readLine())!=null){
@@ -446,7 +446,7 @@ public class Main extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
