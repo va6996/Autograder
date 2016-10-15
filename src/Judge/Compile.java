@@ -11,7 +11,7 @@ public class Compile {
     private static ProcessBuilder probuilder;
 
     //Set up the ProcessBuilder Streams.
-    private static void setUpProcess(String[] compile, File beforeoutput){
+    private void setUpProcess(String[] compile, File beforeoutput){
         probuilder = new ProcessBuilder( compile );
         probuilder.directory(new File(path));
         probuilder.redirectErrorStream(true);
@@ -19,7 +19,7 @@ public class Compile {
     }
 
     //Main Compile Code.
-    public static boolean compile(String[] compile) throws IOException, InterruptedException{
+    public boolean compile(String[] compile) throws IOException, InterruptedException{
         File beforeoutput = new File(path + "compile.txt");
         setUpProcess(compile, beforeoutput);
         //All compiles are set to false by default.
