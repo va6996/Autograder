@@ -1,2 +1,0 @@
-Judge.Execute
-Judge.ExecuteThread
