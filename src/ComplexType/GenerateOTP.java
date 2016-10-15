@@ -4,7 +4,7 @@ package ComplexType;
 import java.security.SecureRandom;
 
 public class GenerateOTP {
-    public static String OTP(){
+    public String OTP(){
         String alpha = "qwertyuiopasdfghjklzxcvbnm1234567890";
         SecureRandom rnd = new SecureRandom();
         StringBuilder sb = new StringBuilder(5);
