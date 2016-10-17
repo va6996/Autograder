@@ -1,5 +1,5 @@
 <html>
-Print the numbers in sequence 1-10
+Print the numbers in sequence 1-9
 <br><br>
 <b>Input</b><br>
 Nothing<br><br>
