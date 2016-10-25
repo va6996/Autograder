@@ -1,10 +1,10 @@
 
-package ComplexType;
+package complextype;
 
 import java.security.SecureRandom;
 
 public class GenerateOTP {
-    public String OTP(){
+    public String otp(){
         String alpha = "qwertyuiopasdfghjklzxcvbnm1234567890";
         SecureRandom rnd = new SecureRandom();
         StringBuilder sb = new StringBuilder(5);

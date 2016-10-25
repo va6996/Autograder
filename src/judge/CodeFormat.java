@@ -1,5 +1,5 @@
 
-package Judge;
+package judge;
 
 public class CodeFormat {
     public static String javaCode = "import java.io.*;\nimport java.util.*;\n\npublic class Solution"

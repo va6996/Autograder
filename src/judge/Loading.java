@@ -1,5 +1,5 @@
 
-package Judge;
+package judge;
 
 import javax.swing.JLabel;
 

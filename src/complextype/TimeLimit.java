@@ -1,6 +1,6 @@
-package ComplexType;
+package complextype;
 
-import Judge.Main;
+import judge.Main;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -21,7 +21,7 @@ public class TimeLimit {
             //Send Mail
         }
         else if (type == 3){
-            String OTP = new GenerateOTP().OTP();
+            String OTP = new GenerateOTP().otp();
             TransparentWindow sw = new TransparentWindow(OTP);
             sw.setVisible(true);
             //Send Mail

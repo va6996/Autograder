@@ -1,4 +1,4 @@
-package ComplexType;
+package complextype;
 
 import java.awt.*;
 import java.awt.event.*;
