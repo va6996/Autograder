@@ -1,5 +1,5 @@
 
-package Judge;
+package judge;
 
 import java.io.File;
 import javax.swing.DefaultListModel;
@@ -16,7 +16,7 @@ public class FileParser {
             }
         }
         else
-            ErrorHandling.IOError();
+            ErrorHandling.ioError();
         return textFiles;
     }
 }

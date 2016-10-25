@@ -1,5 +1,5 @@
 
-package Judge;
+package judge;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -311,7 +311,7 @@ public class Main extends javax.swing.JFrame {
 				writeFile.write(text);
 				writeFile.close();
 			} catch (IOException ex) {
-				ErrorHandling.IOError();
+				ErrorHandling.ioError();
 			}
 			submitAction(select);
 		}
@@ -356,11 +356,11 @@ public class Main extends javax.swing.JFrame {
 				ExecuteText.setText("");
 			}
 		} catch (IOException ex) {
-			ErrorHandling.IOError();
+			ErrorHandling.ioError();
 		} catch (InterruptedException ex) {
-			ErrorHandling.InterruptError();
+			ErrorHandling.interruptError();
 		} catch (ExecutionException ex) {
-			ErrorHandling.ExecutionError();
+			ErrorHandling.executionError();
 		}
 	}
 
@@ -398,9 +398,9 @@ public class Main extends javax.swing.JFrame {
 					}
 					CodeArea.setText(result);
 				} catch (FileNotFoundException ex) {
-					ErrorHandling.FileError();
+					ErrorHandling.fileError();
 				} catch (IOException ex) {
-					ErrorHandling.IOError();
+					ErrorHandling.ioError();
 				}
 			}
 		}
@@ -424,11 +424,11 @@ public class Main extends javax.swing.JFrame {
 			Question.setText(result);
 			rightPane.setSelectedIndex(0);
 		} catch (FileNotFoundException ex) {
-			ErrorHandling.FileError();
+			ErrorHandling.fileError();
 		} catch (IOException ex) {
-			ErrorHandling.IOError();
+			ErrorHandling.ioError();
 		} catch (ArrayIndexOutOfBoundsException ex) {
-			// ErrorHandling.IndexOutOfBoundsError();
+			// ErrorHandling.indexOutOfBoundsError();
 		}
 	}
 

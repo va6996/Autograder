@@ -36,7 +36,7 @@ class Execute extends Thread{
 public class Test {
     public static String path = new File("").getAbsolutePath().concat("\\");
 
-//"C:\\Users\\Sith Lord\\Documents\\Judge\\";
+//"C:\\Users\\Sith Lord\\Documents\\judge\\";
     public static String npath = path + "bin\\";
     public static boolean flag;
     public static boolean tle;

@@ -1,4 +1,4 @@
-package Judge;
+package judge;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -25,7 +25,7 @@ class ExecuteThread extends Thread {
 		try {
 			proc.waitFor();
 		} catch (InterruptedException e) {
-			ErrorHandling.InterruptError();
+			ErrorHandling.interruptError();
 		}
 
 	}
