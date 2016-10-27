@@ -16,6 +16,35 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Main extends javax.swing.JFrame {
 
+	// Variables declaration - do not modify//GEN-BEGIN:variables
+	private javax.swing.JPanel AnswerPane;
+	private javax.swing.JTextArea CodeArea;
+	private javax.swing.JList CompletedList;
+	private javax.swing.JLabel ExecuteText;
+	private javax.swing.JComboBox<String> LangSelector;
+	private javax.swing.JPanel ListPane;
+	private javax.swing.JButton Open;
+	private javax.swing.JLabel Question;
+	private javax.swing.JScrollPane QuestionList;
+	private javax.swing.JPanel QuestionPane;
+	private javax.swing.JList<String> QuestionsList;
+	private javax.swing.JButton Submit;
+	private javax.swing.JLabel defaultText;
+	private javax.swing.JLabel jLabel1;
+	private javax.swing.JPanel jPanel1;
+	private javax.swing.JPanel jPanel2;
+	private javax.swing.JPanel jPanel3;
+	private javax.swing.JPanel jPanel4;
+	private javax.swing.JPanel jPanel5;
+	private javax.swing.JPanel jPanel6;
+	private javax.swing.JScrollPane jScrollPane1;
+	private javax.swing.JScrollPane jScrollPane2;
+	private javax.swing.JScrollPane jScrollPane3;
+	private javax.swing.JSplitPane jSplitPane1;
+	private javax.swing.JTabbedPane jTabbedPane1;
+	private javax.swing.JTabbedPane rightPane;
+	// End of variables declaration//GEN-END:variables
+
 	public static DefaultListModel<String> questionList;
 	public static DefaultListModel<String> completedList = new DefaultListModel<>();
 	public static int index = -1;
@@ -62,7 +91,7 @@ public class Main extends javax.swing.JFrame {
 		jPanel4 = new javax.swing.JPanel();
 		defaultText = new javax.swing.JLabel();
 		ExecuteText = new javax.swing.JLabel();
-		Loading = new javax.swing.JLabel();
+		private javax.swing.JLabel Loading = new javax.swing.JLabel();
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -468,34 +497,5 @@ public class Main extends javax.swing.JFrame {
 			}
 		});
 	}
-
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JPanel AnswerPane;
-	private javax.swing.JTextArea CodeArea;
-	private javax.swing.JList CompletedList;
-	private javax.swing.JLabel ExecuteText;
-	private javax.swing.JComboBox<String> LangSelector;
-	private javax.swing.JPanel ListPane;
-	private javax.swing.JLabel Loading;
-	private javax.swing.JButton Open;
-	private javax.swing.JLabel Question;
-	private javax.swing.JScrollPane QuestionList;
-	private javax.swing.JPanel QuestionPane;
-	private javax.swing.JList<String> QuestionsList;
-	private javax.swing.JButton Submit;
-	private javax.swing.JLabel defaultText;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JPanel jPanel1;
-	private javax.swing.JPanel jPanel2;
-	private javax.swing.JPanel jPanel3;
-	private javax.swing.JPanel jPanel4;
-	private javax.swing.JPanel jPanel5;
-	private javax.swing.JPanel jPanel6;
-	private javax.swing.JScrollPane jScrollPane1;
-	private javax.swing.JScrollPane jScrollPane2;
-	private javax.swing.JScrollPane jScrollPane3;
-	private javax.swing.JSplitPane jSplitPane1;
-	private javax.swing.JTabbedPane jTabbedPane1;
-	private javax.swing.JTabbedPane rightPane;
-	// End of variables declaration//GEN-END:variables
+	
 }
