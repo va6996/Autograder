@@ -15,10 +15,8 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import static test.Test.path;
 
 
 /**
@@ -27,6 +25,34 @@ import static test.Test.path;
  */
 public class Main extends javax.swing.JFrame {
 
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel AnswerPane;
+    private javax.swing.JTextArea CodeArea;
+    private javax.swing.JLabel ExecuteText;
+    private javax.swing.JComboBox<String> LangSelector;
+    private javax.swing.JPanel ListPane;
+    private javax.swing.JButton Open;
+    private javax.swing.JLabel Question;
+    private javax.swing.JScrollPane QuestionList;
+    private javax.swing.JPanel QuestionPane;
+    private javax.swing.JList<String> QuestionsList;
+    private javax.swing.JButton Submit;
+    private javax.swing.JLabel defaultText;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane rightPane;
+    // End of variables declaration//GEN-END:variables
+
+ 
     /**
      * Creates new form Main
      */
@@ -190,7 +216,7 @@ public class Main extends javax.swing.JFrame {
         Submit.setPreferredSize(new java.awt.Dimension(100, 30));
         Submit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubmitActionPerformed(evt);
+                submitActionPerformed(evt);
             }
         });
 
@@ -201,7 +227,7 @@ public class Main extends javax.swing.JFrame {
         Open.setPreferredSize(new java.awt.Dimension(100, 30));
         Open.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OpenActionPerformed(evt);
+                openActionPerformed(evt);
             }
         });
 
@@ -295,7 +321,7 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
+    private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
         // TODO add your handling code here:
         rightPane.setSelectedIndex(2);
         String text = CodeArea.getText();
@@ -317,7 +343,7 @@ public class Main extends javax.swing.JFrame {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         submitAction(select);
-    }//GEN-LAST:event_SubmitActionPerformed
+    }//GEN-LAST:event_submitActionPerformed
     private void submitAction(int select){
         defaultText.setText("Compiling..");
         String[] compile = null;
@@ -358,7 +384,7 @@ public class Main extends javax.swing.JFrame {
         }
     }
     
-    private void LangSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LangSelectorActionPerformed
+    private void LangSelectorActionPerformed() {//GEN-FIRST:event_LangSelectorActionPerformed
         // TODO add your handling code here:
         int select = LangSelector.getSelectedIndex();
         if(select == 0)
@@ -371,7 +397,7 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LangSelectorActionPerformed
 
-    private void QuestionsListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_QuestionsListValueChanged
+    private void QuestionsListValueChanged() {//GEN-FIRST:event_QuestionsListValueChanged
         // TODO add your handling code here:
         index = QuestionsList.getSelectedIndex();
         loadQuest(index);
@@ -379,7 +405,7 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_QuestionsListValueChanged
 
-    private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
+    private void openActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openActionPerformed
         // TODO add your handling code here:
         JFileChooser open = new JFileChooser();
         open.setFileFilter(new FileNameExtensionFilter("Text Files", "txt"));
@@ -403,7 +429,7 @@ public class Main extends javax.swing.JFrame {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_OpenActionPerformed
+    }//GEN-LAST:event_openActionPerformed
     public void loadQuest(int index){
         try {     
             BufferedReader Reader = new BufferedReader(new FileReader(Test.path + "Questions\\" + questionList.get(index)));
@@ -454,31 +480,5 @@ public class Main extends javax.swing.JFrame {
                 new Main().setVisible(true);
             }
         });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel AnswerPane;
-    private javax.swing.JTextArea CodeArea;
-    private javax.swing.JLabel ExecuteText;
-    private javax.swing.JComboBox<String> LangSelector;
-    private javax.swing.JPanel ListPane;
-    private javax.swing.JButton Open;
-    private javax.swing.JLabel Question;
-    private javax.swing.JScrollPane QuestionList;
-    private javax.swing.JPanel QuestionPane;
-    private javax.swing.JList<String> QuestionsList;
-    private javax.swing.JButton Submit;
-    private javax.swing.JLabel defaultText;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane rightPane;
-    // End of variables declaration//GEN-END:variables
+    }    
 }

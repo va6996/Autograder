@@ -11,7 +11,6 @@ public class TimeLimit {
     
     public void lastJob(String RegNo, int type){
         if(type ==1){
-            String score = "";
             //Send Mail
         }
         else if (type==2){
