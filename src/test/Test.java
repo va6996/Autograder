@@ -146,14 +146,6 @@ public class Test {
         }
     }
     
-    public static void c(){
-        
-    }
-    
-    public static void cpp(){
-        
-    }
-    
     public static void main(String [] args) {
         //new Main();
         File dir =new File(path + "Questions\\" );
